@@ -6,7 +6,7 @@ int main() {
     cin >> members >> list;
     for (int i = 0; i < 9; i++) {
         sum = 0;
-        for(int j = 0; j < members; j++) {
+        for (int j = 0; j < members; j++) {
             sum += list % 10;
             list /= 10;
         }
