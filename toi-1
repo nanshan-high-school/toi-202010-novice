@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int inputnum, a, b;
+    cin >> inputnum;
+     
+    a = inputnum - (inputnum/2000) * 200;
+    b = inputnum - (inputnum/1000) * 100;
+    if (a <= b) {
+ 	cout << a << " 0";
+    }
+    else {
+ 	cout << b << " 1";
+    }
+ }
