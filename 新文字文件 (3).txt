@@ -1,0 +1,89 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int money;
+    int tian;
+    int cici;
+    int tian_num;
+    int cici_num;
+
+    do {
+        cin >> money;
+    }while (money >= 10000 && money <= 0);
+
+    tian_num = money;
+    cici_num = money;
+
+    tian_num /= 2000;
+    cici_num /= 1000;
+
+    tian = money;
+    cici = money;
+
+    for (int i = 0; i < tian_num; i++){
+        if (tian >= 2000 ) {
+            tian -= 200;
+        }
+    }
+
+    for (int j = 0; j < cici_num; j++){
+        if (cici >= 1000 ) {
+            cici -= 100;
+        }
+    }
+    if (tian > cici){
+        cout << cici << " ";
+        cout << "1";
+    } else {
+        cout << tian << " ";
+        cout << "0";
+    }
+}
+
+
+#include <iostream>
+using namespace std;
+int main() {
+    int N = 0, P = 0, max = -1, max_team = 0, group = 0;
+    cin >> N;
+    cin >> P;
+    
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < N; j++) {
+            group += P % 10;
+            P /= 10;
+        }
+        if (group >= max) {
+            max = group;
+            max_team = i + 1;
+        }
+        group = 0;
+    }
+    cout << max_team << " " << max;
+}
+#include <iostream>
+using namespace std;
+int main() {
+    int S = 0, E = 0, A = 0, day = 1;
+    cin >> S >> E >> A;
+    
+    while (A > 0 && E > S) {
+        if (day % 9 == 0) {
+            day += 2;
+        }
+        if (day % 3 == 0) {
+            S += (S / 3);
+            day += 1;
+            A -= 1;
+        } else {
+            S += (S / 10);
+            day += 1;
+            A -= 1;
+        }
+    }
+    if (A <= 0){
+        cout << "unsalable";
+    } else {
+        cout << day;
+    }
+}
