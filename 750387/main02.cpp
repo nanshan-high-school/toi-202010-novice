@@ -1,21 +1,51 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
+int SumPower(int n); //函式宣告
 
 int main() {
-    int N1;
-    int N2;
-    int total = 0;
+    int Man;
+    int Power;
+    int CalTeam, MaxTeam;
+    int MaxNum, CalNum, CalNum2;
+    int i;
 
-    cin >> N1;
+    cin >> Man >> Power;
 
-    N2 = (N1 % 2000) / 1000;
+    CalTeam = 0;
+    MaxTeam = 0;
+    MaxNum = 0;
 
-    total = N1 - ((N1 / 2000) * 200 + (N2 * 100));
+    while (Power != 0) {
+        CalNum = 0;
+        CalNum2 = 0;
+        CalTeam ++;
 
-    if (N2 >= 1) {
-        cout << total << " " << "1" << endl;
-    } else {
-        cout << total << " " << "0" << endl;
+        CalNum = Power % int(pow(10, Man));
+        Power /= int(pow(10, Man));
 
+        //cout << CalTeam << "-" << CalNum ;
+
+        CalNum2 = SumPower(CalNum);
+
+        if (CalNum2 >= MaxNum) {
+            MaxNum = CalNum2;
+            MaxTeam = CalTeam;
+        }
+        //cout << "-" << CalNum2 << endl;
     }
+
+    cout << MaxTeam << " " << MaxNum <<endl;
+
+    return 0;
+}
+
+int SumPower(int n) {
+    int t = 0;
+    while (n != 0) {
+        t += n % 10;
+        n /= 10;
+    }
+
+    return t;
 }
