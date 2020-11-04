@@ -7,8 +7,8 @@ int main() {
     num1 = money / 1000 * 100;
     num2 = money / 2000 * 200;
     if (money - num1 < money - num2) {
-        cout << money - num1 << " " << "1";
+        cout << money - num1 << " 1";
     } else {
-        cout << money - num2 << " " << "0";
+        cout << money - num2 << " 0";
     }
 }
